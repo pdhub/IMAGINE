@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Crazy home Page</title>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+
+<script>
+
+alert('hi');
+
+var i;
+for(i=0;i<10;i++){
+}
+var x =i;
+alert(x);
+
+</script>
+<body>
+
+<div ng-app="" ng-init="firstName='John'">
+<p>Name : <input type="text" ng-model="name"></p>
+<h7>Hello : {{name}}</h7>
+<p ng-bind="name"></p>
+<p> The name is <span ng-bind="firstName"></span></p>
+<p>The name is <span data-ng-bind="firstName"></span></p>
+<p>My first expression: {{ 5 + 5 }}</p>
+</div>
+
+</body>
+</html>
