@@ -1,16 +1,22 @@
 package com.pritom.spring.controller;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.pritom.spring.delegate.LoginDelegate;
+import com.pritom.spring.model.Person;
 import com.pritom.spring.model.UserBean;
 import com.pritom.spring.view.LoginBean;
 
@@ -18,10 +24,31 @@ import com.pritom.spring.view.LoginBean;
 public class LoginController
 
 {
+	
+	/****************************************************
+	 * Test code to check JSON parsing
+	 * **************************************************/
+	@RequestMapping(value = "/getUserName", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@ResponseBody
+	public List<Person> linksByKeyXhr()
+	{
+		List<Person> linksList =  new ArrayList<Person>();
+		Person p = new Person();
+		p.setCountry("India");
+		p.setId(123);
+		p.setName("Pritom");
+		linksList.add(p);
+		
+		System.out.println("Returning list person");
+		
+		return linksList;
+	}
+	
+	
 	@Autowired
 	private LoginDelegate loginDelegate;
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/Plogin", method = RequestMethod.GET)
 	public ModelAndView displayLogin(HttpServletRequest request,
 			HttpServletResponse response){
 
@@ -36,7 +63,7 @@ public class LoginController
 
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/Plogin", method = RequestMethod.POST)
 	public ModelAndView executeLogin(HttpServletRequest request,
 			HttpServletResponse response,
 			@ModelAttribute("loginBean") LoginBean loginBean,HttpSession session){
