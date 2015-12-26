@@ -152,7 +152,7 @@ td.b {
 				<INPUT TYPE="hidden" NAME="questionId"
 					VALUE=${userExamView.currentQuestion.questionId}></INPUT>
 				<INPUT TYPE="hidden" NAME="numQuestions"
-					VALUE=${userExamView.numQuestions}></INPUT> numQuestions
+					VALUE=${userExamView.numQuestions}></INPUT>
 			</tr>
 
 			<c:forEach items="${userExamView.currentQuestion.answers}"
@@ -182,25 +182,30 @@ td.b {
 <spring:url var="action" value="/getNewQuestion" />
 <form:form action="${action}">
 
-	<input type=hidden id=questionId value="1" />
-	<c:forEach var="i" begin="1" end="${userExamView.numQuestions}">
+	<table frame="box">
 
-		<c:if test="${i == userExamView.currentQuestion.questionId}">
-			<INPUT TYPE="radio" NAME="theRadioGroupName" VALUE=${i
-				}
-				checked="checked">${i}</INPUT>
-		</c:if>
+		<input type=hidden id=questionId value="1" />
+		<c:forEach var="i" begin="1" end="${userExamView.numQuestions}">
+			<tr>
+				<td><c:if
+						test="${i == userExamView.currentQuestion.questionId}">
+						<INPUT TYPE="radio" NAME="theRadioGroupName" VALUE=${i}	checked="checked"
+						onchange="alert(${i})">${i}</INPUT>
+					</c:if> 
+					<c:if test="${i != userExamView.currentQuestion.questionId}">
+						<INPUT TYPE="radio" NAME="theRadioGroupName" VALUE=${i}
+						 onchange="alert(${i})">${i}</INPUT>
 
-		<c:if test="${i != userExamView.currentQuestion.questionId}">
-			<INPUT TYPE="radio" NAME="theRadioGroupName" VALUE=${i}>${i}</INPUT>
+					</c:if>
+				</td>
+			</tr>
+		</c:forEach>
 
-		</c:if>
+		<tr>
+			<td><input type="submit" value="Go" /></td>
+		</tr>
 
-	</c:forEach>
-
-
-	<input type="submit" value="Go" />
-
+	</table>
 </form:form>
 
 
