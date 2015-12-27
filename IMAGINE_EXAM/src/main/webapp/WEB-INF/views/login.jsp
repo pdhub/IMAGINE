@@ -37,11 +37,11 @@
 </head>
 <body onload='document.loginForm.username.focus();'>
 
-	<h1>Spring Security Custom Login Form (XML)</h1>
+	<h3 align="center">There is an exam for you, please login to continue</h3>
 
 	<div id="login-box">
 
-		<h3>Login with Username and Password</h3>
+		<h3>Login here</h3>
 
 		<c:if test="${not empty error}">
 			<div class="error">${error}</div>

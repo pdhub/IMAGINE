@@ -139,9 +139,8 @@ td.b {
 	});
 </script>
 <body>
+<sec:authorize access="hasRole('ROLE_USER')">
 
-
-</body>
 <center class="box" border="1px">
 
 	<spring:url var="action" value="/submitCurrentAns" />
@@ -207,7 +206,11 @@ td.b {
 
 	</table>
 </form:form>
+</sec:authorize>
 
+</body>
+
+<jsp:include page="admin.jsp" />
 
 
 </html>
