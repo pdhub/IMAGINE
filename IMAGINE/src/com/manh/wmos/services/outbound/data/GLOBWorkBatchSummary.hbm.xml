@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Aug 31, 2015 5:29:24 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.manh.ils.wmservices.hibernate.GLOBWorkBatchSummary" table="C_WORK_BATCH_SUMMARY">
+        <id name="batchId" type="java.lang.String">
+            <column name="BATCH_ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="userId" type="java.lang.String">
+            <column name="USER_ID" />
+        </property>
+        <property name="statCode" type="java.lang.Integer">
+            <column name="STAT_CODE" />
+        </property>
+        <property name="nbrOfLpn" type="java.lang.Integer">
+            <column name="NBR_OF_LPN" />
+        </property>
+        <property name="nbrOfTasks" type="java.lang.Integer">
+            <column name="NBR_OF_TASKS" />
+        </property>
+        <property name="mheFlag" type="java.lang.String">
+            <column name="MHE_FLAG" />
+        </property>
+        <property name="createdDttm" type="java.sql.Date">
+            <column name="CREATED_DTTM" />
+        </property>
+        <property name="lastUpdatedDttm" type="java.sql.Date">
+            <column name="LAST_UPDATED_DTTM" />
+        </property>
+        <property name="units" type="java.lang.Integer">
+            <column name="UNITS" />
+        </property>
+        <property name="picks" type="java.lang.Integer">
+            <column name="PICKS" />
+        </property>
+        <property name="picksComplete" type="java.lang.Integer">
+            <column name="PICKS_COMPLETE" />
+        </property>
+        <property name="batchPriority" type="java.lang.Integer">
+            <column name="BATCH_PRIORITY" />
+        </property>
+        <property name="batchCriteria" type="materialized_clob">
+            <column name="BATCH_CRITERIA" />
+        </property>
+    </class>
+</hibernate-mapping>
