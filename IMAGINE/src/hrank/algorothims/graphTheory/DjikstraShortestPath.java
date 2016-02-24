@@ -35,27 +35,7 @@ public class DjikstraShortestPath {
 	}
 
 }
-/**Create The Vertex */
-class Vertex{
-	public int id;
-	public String name;
-	public Vertex(int id, String name){
-		this.id = id;
-		this.name = name;
-	}
-}
-/**Create the Edge */
-class Edge{
-	public int id;
-	public Vertex source, destination;
-	public int weight;
-	public Edge(int id, Vertex source, Vertex destination, int weight){
-		this.source = source;
-		this.destination = destination;
-		this.weight = weight;
-		this.id = id;
-	}	
-}
+
 /**Create the Graph*/
 class Graph{
 	public List<Vertex> vertices;
